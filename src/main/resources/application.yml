@@ -1,9 +1,20 @@
 server:
-  port: 9092
+  port: 9191
 
 spring:
   application:
-    name: CLOUD-GATEWAY
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: DEPARTMENT-SERVICE
+          uri: lb://DEPARTMENT-SERVICE
+          predicates:
+            - Path=/Departments/**
+        - id: EMPLOYEE-SERVICE
+          uri: lb://EMPLOYEE-SERVICE
+          predicates:
+            - Path=/Employees/**
 
 eureka:
   client:
