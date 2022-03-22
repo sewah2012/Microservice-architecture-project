@@ -14,3 +14,8 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   instance:
     hostname: localhost
+
+#hystrix dashboard configurations
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"
